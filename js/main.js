@@ -1,3 +1,1 @@
-import {generatedArray, makeId} from './utils.js';
-
-generatedArray(makeId);
+import './pictures.js';
