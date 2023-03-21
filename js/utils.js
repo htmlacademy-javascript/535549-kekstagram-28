@@ -100,12 +100,12 @@ const generatedArray = (idArray) => {
       'url': url[i],
       'description': description[i],
       'likes': likes[i],
-      'comments': {
+      'comments': [{
         'id': commentId[i],
         'avatar': commentAvatar[Math.floor(Math.random() * commentAvatar.length)],
         'message': commentMessage[i],
         'name': commentName[i]
-      }
+      }]
     });
   }
   return newArray;
