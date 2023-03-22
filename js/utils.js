@@ -111,4 +111,7 @@ const generatedArray = (idArray) => {
   return newArray;
 };
 
-export {generatedArray, makeId};
+const isEscapeKey = (evt) => evt.key === 'Escape';
+const isEnterKey = (evt) => evt.key === 'Enter';
+
+export {generatedArray, makeId, isEscapeKey, isEnterKey};
