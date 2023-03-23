@@ -1,7 +1,7 @@
 import {descriptionVariables} from './data.js';
 
 const MAGIC_NUMBER = 25;
-
+const COMMENTS_ARRAY_LENGTH = 15;
 const makeId = Array.from({length: MAGIC_NUMBER}, (_, i) => i + 1);
 
 const makeUrl = () => {
@@ -84,6 +84,22 @@ const makeCommentsName = (length) => {
   }
   return namesArray;
 };
+const commentsArray = () => {
+  const arr = [];
+  const commentId = makeCommentsIds();
+  const commentAvatar = makeCommentsAvatar();
+  const commentMessage = makeCommentsMessage(descriptionVariables);
+  const commentName = makeCommentsName(7);
+  for (let i = 1; i <= COMMENTS_ARRAY_LENGTH; i++) {
+    arr.push({
+      'id': commentId[i],
+      'avatar': commentAvatar[Math.floor(Math.random() * commentAvatar.length)],
+      'message': commentMessage[i],
+      'name': commentName[i]
+    });
+  }
+  return arr;
+};
 
 const generatedArray = (idArray) => {
   const newArray = [];
@@ -91,21 +107,13 @@ const generatedArray = (idArray) => {
   const url = makeUrl();
   const likes = makeLikes();
   const description = makeDescription(13);
-  const commentId = makeCommentsIds();
-  const commentAvatar = makeCommentsAvatar();
-  const commentMessage = makeCommentsMessage(descriptionVariables);
-  const commentName = makeCommentsName(7);
+  const commetsArray = commentsArray();
   for (let i = 0; i < MAGIC_NUMBER; i++) {
     newArray.push({'id' : ids[i],
       'url': url[i],
       'description': description[i],
       'likes': likes[i],
-      'comments': [{
-        'id': commentId[i],
-        'avatar': commentAvatar[Math.floor(Math.random() * commentAvatar.length)],
-        'message': commentMessage[i],
-        'name': commentName[i]
-      }]
+      'comments': commetsArray
     });
   }
   return newArray;
