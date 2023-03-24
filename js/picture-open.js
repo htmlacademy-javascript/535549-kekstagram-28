@@ -1,15 +1,15 @@
 import {data} from './pictures.js';
 import {isEscapeKey, isEnterKey} from './utils.js';
 
+const COMMENTS_COUNT = 5;
 const body = document.querySelector('body');
 const bigPicture = document.querySelector('.big-picture');
-const bigPicureImg = bigPicture.querySelector('.big-picture__img').querySelector('img');
+const bigPictureImg = bigPicture.querySelector('.big-picture__img').querySelector('img');
 const bigPictureSocial = bigPicture.querySelector('.big-picture__social');
 const bigPictureOpenElement = document.querySelector('.pictures');
 const bigPictureCloseElement = bigPicture.querySelector('.big-picture__cancel');
 const commentLoaderButton = bigPicture.querySelector('.social__comments-loader');
 const socialComments = bigPicture.querySelector('.social__comments');
-const COMMENTS_COUNT = 5;
 
 
 const onDocumentKeydown = (evt) => {
@@ -22,8 +22,8 @@ const onDocumentKeydown = (evt) => {
 
 function openBigPicture (pictureURL, pictureId, pictureLikesCount, pictureCommentsCount, pictureDescription, pictureCommentArr) {
   socialComments.innerHTML = '';
-  bigPicureImg.src = pictureURL;
-  bigPicureImg.id = pictureId;
+  bigPictureImg.src = pictureURL;
+  bigPictureImg.id = pictureId;
   bigPictureSocial.querySelector('.likes-count').textContent = pictureLikesCount;
   bigPictureSocial.querySelector('.comments-count').textContent = pictureCommentsCount;
   bigPictureSocial.querySelector('.social__caption').textContent = pictureDescription;
